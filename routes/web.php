@@ -10,7 +10,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard',[EventoController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/registro', [EventoController::class, 'lector']);
+Route::get('/registro', [EventoController::class, 'lector'])->name('lector');
+Route::get('/registro/ingreso/{id}', [EventoController::class, 'registroIngreso']);
 
 Route::resource('eventos', EventoController::class);
 
